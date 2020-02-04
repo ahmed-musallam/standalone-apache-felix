@@ -1,13 +1,22 @@
 #!/usr/bin/env sh
 
-###########################
+#################################################################################
 ####  CONSTANTS
-###########################
+#################################################################################
+
+# URL from which to download felix bundles listed in `FELIX_BUNDLES` variable. Must end with `/`
 FELIX_MIRROR="https://www-us.apache.org/dist/felix/"
+# Maven repo URL from which to download bundles listed in `MAVEN_BUNDLES` variable.  Must end with `/`
 MAVEN_REPO="https://repo1.maven.org/maven2/"
+# The temp folder this script creates where the felix installation will reside.
 DIST=".felix"
+# the main felix distro, downloaded from `FELIX_MIRROR`
 MAIN="org.apache.felix.main.distribution-6.0.3.zip"
+# Port to run felix on.
 PORT=8080
+# Bundles to be downloaded from `FELIX_MIRROR`
+# you can navigate to `FELIX_MIRROR` in your browser and see what bundles exist thre.
+# You can also see other available mirrors here: https://felix.apache.org/downloads.cgi#mirrors
 FELIX_BUNDLES=(
   org.apache.felix.http.api-3.0.0.jar
   org.apache.felix.http.jetty-4.0.14.jar
@@ -17,15 +26,18 @@ FELIX_BUNDLES=(
   org.apache.felix.webconsole-4.3.16-all.jar
   org.apache.felix.webconsole.plugins.ds-2.1.0.jar
 )
+# Bundles to be downloaded from `MAVEN_REPO`
+# for each bundle "bundle" below, the download URL is `${MAVEN_REPO}${bundle}`
+# so make sure to include the full path after the $MAVEN_REPO URL.
 MAVEN_BUNDLES=(
   org/osgi/org.osgi.service.cm/1.6.0/org.osgi.service.cm-1.6.0.jar
   org/osgi/org.osgi.util.function/1.1.0/org.osgi.util.function-1.1.0.jar
   org/osgi/org.osgi.util.promise/1.1.1/org.osgi.util.promise-1.1.1.jar
 )
 
-###########################
+#################################################################################
 ####  HELPER FUNCTIONS
-###########################
+#################################################################################
 # print in blue color
 info () {
   printf "\e[1;34m[INFO]:: %s ::\e[0m\n" "$*"
@@ -88,9 +100,9 @@ unzipStrip() (
     info "Unzipped!"
 )
 
-###########################
+#################################################################################
 ####  MAIN
-###########################
+#################################################################################
 info "Felix Mirror is set to: $FELIX_MIRROR"
 info "OSGI Mirror is set to: $MAVEN_REPO"
 info "Cleaning $DIST Folder..."
