@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 #################################################################################
 ####  CONFIG VARIABLES
@@ -124,12 +124,13 @@ for bundle in "${MAVEN_BUNDLES[@]}"; do
   downloadFromMavenRepo $bundle "bundle/${bundle##*/}" # see: https://unix.stackexchange.com/a/325492
 done
 
-info "Updating port to $PORT"
-sed -i '' "s/\(org\.osgi\.service\.http\.port=\).*\$/\1${PORT}/" $DIST/conf/config.properties 
+#info "Updating port to $PORT"
+#sed -i '' "s/\(org\.osgi\.service\.http\.port=\).*\$/\1${PORT}/" $DIST/conf/config.properties 
 
 warn "RUNNING FELIX!!!"
 warn "Felix will open interactive GOGO Shell below. Type 'system:exit 0' to terminate felix"
 warn "You can now go to http://localhost:$PORT/system/console and use creds admin:admin"
 
 cd ./$DIST
-java -jar -Djetty.port=9999 bin/felix.jar 
+java -jar bin/felix.jar && tail -f /dev/null
+
