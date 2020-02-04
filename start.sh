@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 #################################################################################
-####  CONSTANTS
+####  CONFIG VARIABLES
 #################################################################################
 
 # URL from which to download felix bundles listed in `FELIX_BUNDLES` variable. Must end with `/`
@@ -15,8 +15,9 @@ MAIN="org.apache.felix.main.distribution-6.0.3.zip"
 # Port to run felix on.
 PORT=8080
 # Bundles to be downloaded from `FELIX_MIRROR`
-# you can navigate to `FELIX_MIRROR` in your browser and see what bundles exist thre.
-# You can also see other available mirrors here: https://felix.apache.org/downloads.cgi#mirrors
+# What I have below are just examples, You can see other available mirrors 
+# and bundles here: https://felix.apache.org/downloads.cgi#mirrors
+# for each "bundle" below, the download URL is `${FELIX_MIRROR}${bundle}`
 FELIX_BUNDLES=(
   org.apache.felix.http.api-3.0.0.jar
   org.apache.felix.http.jetty-4.0.14.jar
@@ -27,7 +28,8 @@ FELIX_BUNDLES=(
   org.apache.felix.webconsole.plugins.ds-2.1.0.jar
 )
 # Bundles to be downloaded from `MAVEN_REPO`
-# for each bundle "bundle" below, the download URL is `${MAVEN_REPO}${bundle}`
+# What I have below are just example bundles, you can add any bundle you want!
+# for each "bundle" below, the download URL is `${MAVEN_REPO}${bundle}`
 # so make sure to include the full path after the $MAVEN_REPO URL.
 MAVEN_BUNDLES=(
   org/osgi/org.osgi.service.cm/1.6.0/org.osgi.service.cm-1.6.0.jar

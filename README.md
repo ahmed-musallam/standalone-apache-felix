@@ -14,5 +14,5 @@ A script to start a standalone Apache Felix instance, and let's you pick specifi
 
 ## Configuring
 
-The `start.sh` shell script has a few configurable variables in the `CONSTANTS` section.
+The `start.sh` shell script has a few configurable variables in the `CONFIG VARIABLES` section.
 Take a look at that file, everything is commented there.
