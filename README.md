@@ -1,46 +1,53 @@
 # standalone-apache-felix
-A script to start a standalone Apache Felix instance, and lets you pick specific bundles to install from the apache felix mirror or from a maven repository!
+A script to start a standalone Apache Felix instance, and lets you pick specific bundles to install from the apache Felix mirror or from a maven repository!
 
 There is also a docker container, see below!
 
 > This is tested on MacOS only.
 
-Demo running locally:
-![Demo](doc/demo.gif)
+Demo running locally from shell script:
+
+![Demo](https://raw.githubusercontent.com/ahmed-musallam/standalone-apache-felix/master/doc/demo.gif)
 
 
 ## Running
 
-### Locally without docker
+### Running locally without docker
 > Tested on MacOs Only
 
 ```sh
 ./start.sh
 ```
 
-### With Docker
+### Running with Docker
 
-#### MacOs (shortcut shell script)
-build and run image
-
-```sh
-./container.sh build run
-```
-
-kill running image
+##### From Docker Hub
 
 ```sh
-./container.sh kill
+docker run -it -p 8080:8080 ahmedmusallam/standalone-apache-felix:latest
 ```
 
-#### Windows (or anywhere else):
+Docker will download the image from docker hub and run for you!
 
-build and run image
+##### From Source
 
-```sh
-docker build -t standalone-felix -f "Dockerfile" .
-docker run -it -p 8080:8080 standalone-felix
-```
+Clone this repo then:
+
+1. Build image: 
+
+  ```sh
+  docker build -t local-standalone-felix -f "Dockerfile" .
+  ```
+
+2. Run image you've just built:
+  
+  ```sh
+  docker run -it -p 8080:8080 local-standalone-felix
+  ```
+
+
+> I've created a utility shell script to make the above commands easier. You can run `./container.sh build run` which is effectively the same as the above. There is also `./container.sh kill` which kills the container.
+
 
 
 ## Configuring
@@ -48,4 +55,4 @@ docker run -it -p 8080:8080 standalone-felix
 The `start.sh` shell script has a few configurable variables in the `CONFIG VARIABLES` section.
 Take a look at that file, everything is commented there.
 
-If using docker, you must build the image after you make changes
+If using docker, you must build the image after you make changes.

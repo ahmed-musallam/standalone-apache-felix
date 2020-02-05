@@ -5,10 +5,10 @@
 #  Use:
 #   ./container build     builds the image locally
 #   ./container run       runs the built image, used after build command
-#   ./container kill      kills all standalone-felix docker images
+#   ./container kill      kills all local-standalone-felix docker images
 #  TIP: you can do ./container build run   and yes, order matters.
 #################################################################################
-NAME="standalone-felix"
+NAME="local-standalone-felix"
 PORT=8080
 while [[ $# -gt 0 ]]
 do
