@@ -1,9 +1,7 @@
 # standalone-apache-felix
 A script to start a standalone Apache Felix instance, and lets you pick specific bundles to install from the apache Felix mirror or from a maven repository!
 
-There is also a docker container, see below!
-
-> This is tested on MacOS only.
+> The script itself is a shell script, and I've only tested it on MacOs. However, you can run the docker image anywhere! See details below.
 
 Demo running locally from shell script:
 
