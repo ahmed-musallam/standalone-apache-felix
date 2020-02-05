@@ -19,7 +19,7 @@ Demo running locally from shell script:
 
 ### Running with Docker
 
-##### From Docker Hub
+#### From Docker Hub
 
 ```sh
 docker run -it -p 8080:8080 ahmedmusallam/standalone-apache-felix:latest
@@ -27,7 +27,7 @@ docker run -it -p 8080:8080 ahmedmusallam/standalone-apache-felix:latest
 
 Docker will download the image from docker hub and run for you!
 
-##### From Source
+#### From Source
 
 Clone this repo then:
 
